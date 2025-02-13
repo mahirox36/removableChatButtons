@@ -54,9 +54,9 @@ export const settings = definePluginSettings({
 });
 
 export default definePlugin({
-    name: "RemoveChatButtons",
+    name: "RemovableChatButtons",
     description: "Remove default and plugin buttons from the chat bar based on settings.",
-    authors: [Devs.Mahiro],
+    authors: [{ name: "Mahiro", id: 829806976702873621n }],
     settings,
 
     start() {
@@ -77,8 +77,6 @@ export default definePlugin({
 
     generateCSS() {
         const rules: string[] = [];
-
-        // Using more reliable selectors that don't depend on webpack
         if (this.settings.store.emojiButton) {
             rules.push(`
                 button[aria-label="Select emoji"] { display: none !important; }
